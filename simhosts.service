@@ -1,0 +1,15 @@
+[Unit]
+Description=Simulated MACVLAN Flask hosts
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=idle
+RemainAfterExit=true
+ExecStart=/usr/local/bin/simulate_hosts.sh start
+ExecStop=/usr/local/bin/simulate_hosts.sh stop
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
