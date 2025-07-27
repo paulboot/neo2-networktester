@@ -18,7 +18,7 @@ For now add to the `/etc/rc.local`
 #
 # By default this script does nothing.
 cd /usr/local/bin
-nice -n 10 /usr/bin/python3 oled-start3.py &
+nice -n 10 /usr/bin/python3 oled-start.py &
 
 exit 0
 ```
