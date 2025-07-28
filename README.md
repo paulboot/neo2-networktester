@@ -3,6 +3,21 @@ Python3 and Bash scripts to use the ARM Neo2 as a network tester
 
 ## Installation
 
+### Prevent kernel updates
+Kernel development for the Neo2 is very unstable most images will will not boot anymore after kernel upgrades.
+
+```
+sudo apt-mark hold linux-image-current-sunxi
+sudo apt-mark hold linux-dtb-current-sunxi
+sudo apt-mark hold armbian-bsp-cli-nanopineo-current
+apt-mark showhold
+echo 'ARMBIAN_NO_UBOOT_INITRD=1' | sudo tee -a /etc/environment
+sudo chmod -x /etc/initramfs/post-update.d/99-uboot
+sudo chattr +i /etc/initramfs/post-update.d/99-uboot
+```
+
+Install needed packages.
+
 ```
 sudo apt -y install \
   git \
