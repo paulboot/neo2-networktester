@@ -22,6 +22,7 @@ Install needed packages.
 sudo apt -y install \
   git \
   vim \
+  isc-dhcp-client \
   python3 \
   python3-libgpiod \
   python3-pil \
