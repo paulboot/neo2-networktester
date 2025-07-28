@@ -7,6 +7,36 @@ This is currently the only image I could find that does not crash after the netw
 * Image: `Armbian_community_25.8.0-trunk.309_Nanopineo_noble_current_6.12.35.img.xz`
 * Download: https://github.com/armbian/community/releases/download/25.8.0-trunk.309/Armbian_community_25.8.0-trunk.309_Nanopineo_noble_current_6.12.35.img.xz
 
+## Flash the image to microSD card
+
+Use **Balena Etcher**, **Raspberry Pi Imager**, or `dd` (on Linux/macOS):
+
+### Using Etcher (recommended):
+
+1. Download and install https://etcher.io
+2. Insert microSD card
+3. Select the `.img.xz` Armbian image
+4. Flash it to the card
+
+> **NOTE** If Etcher complains about anything (image corruption/failure of device) then on my hardware setup stopping Etcher en restarting Etcher fixed the error. Also after writing each image restart Etcher.
+
+###  Log in via SSH
+
+```
+ssh root@<your-ip-address>
+```
+
+Default login:
+
+* **Username**: `root`
+* **Password**: `1234`
+
+On first login:
+
+* You'll be prompted to change the root password
+* Then create a new non-root user
+* And do some basic settings
+
 ## Installation
 
 ### Prevent kernel updates
