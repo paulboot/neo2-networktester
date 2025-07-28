@@ -63,6 +63,12 @@ sudo i2cdetect -y 0
 ```
 
 Look for the OLED’s I²C address—usually **0x3c**. You should see it in the output grid.
+### Clone repo and install code
+
+```
+git clone https://github.com/paulboot/neo2-networktester.git
+cp -a ./neo2-networktester/* /usr/local/bin/
+```
 
 ### Automatic Startup
 
