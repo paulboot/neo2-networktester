@@ -1,6 +1,12 @@
 # neo2-networktester
 Python3 and Bash scripts to use the ARM Neo2 as a network tester
 
+
+## Image download
+This is currently the only image I could find that does not crash after the netwotk interface becomes active.
+* Image: `Armbian_community_25.8.0-trunk.309_Nanopineo_noble_current_6.12.35.img.xz`
+* Download: https://github.com/armbian/community/releases/download/25.8.0-trunk.309/Armbian_community_25.8.0-trunk.309_Nanopineo_noble_current_6.12.35.img.xz
+
 ## Installation
 
 ### Prevent kernel updates
