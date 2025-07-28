@@ -19,8 +19,7 @@ sudo chattr +i /etc/initramfs/post-update.d/99-uboot
 Install needed packages.
 
 ```
-sudo apt update \
-   apt upgrade
+sudo apt update && sudo apt upgrade
 
 sudo apt -y install \
   git \
