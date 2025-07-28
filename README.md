@@ -18,12 +18,12 @@ Use **Balena Etcher**, **Raspberry Pi Imager**, or `dd` (on Linux/macOS):
 3. Select the `.img.xz` Armbian image
 4. Flash it to the card
 
-> **NOTE** If Etcher complains about anything (image corruption/failure of device) then on my hardware setup stopping Etcher en restarting Etcher fixed the error. Also after writing each image restart Etcher.
+> **NOTE:** If Etcher complains about anything (image corruption/failure of device) then on my hardware setup stopping Etcher en restarting Etcher fixed the error. Also after writing each image restart Etcher.
 
 ###  Log in via SSH
-
+After a succesful boot the activity lights on the Ethernet port should periodically blink. Search your DHCP server logs and look for a device with hostname: `nanopineo`
 ```
-ssh root@<your-ip-address>
+ssh root@<your-neo-ip-address>  
 ```
 
 Default login:
