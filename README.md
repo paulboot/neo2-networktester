@@ -21,6 +21,7 @@ Install needed packages.
 ```
 sudo apt -y install \
   git \
+  vim \
   python3 \
   python3-libgpiod \
   python3-pil \
