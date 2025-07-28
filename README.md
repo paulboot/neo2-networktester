@@ -122,7 +122,7 @@ For now add to the `/etc/rc.local`
 # In order to enable or disable this script just change the execution
 # bits.
 #
-# By default this script does nothing.
+
 cd /usr/local/bin
 nice -n 10 /usr/bin/python3 oled-start.py &
 
