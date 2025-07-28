@@ -34,7 +34,7 @@ sudo apt -y install \
 Enable i2c0:
 
 ```
-sudo vi /boot/armbianEnv.txt
+sudo nano /boot/armbianEnv.txt
 ```
 
 Then add `i2c0` with a space seperating it from the other values:
