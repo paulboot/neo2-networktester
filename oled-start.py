@@ -203,26 +203,49 @@ try:
             write_i2c_image_data(i2c0_bus, image)
         elif cmd_index == 2:
             text1 = get_ipv4()
-            text2 = subprocess.check_output(
-            'df -h | awk \'$NF=="/"{printf "Sto: %d/%dGB %s", $3,$2,$5}\'',
-            shell=True,
-            text=True,
-            )
-            text3 = subprocess.check_output(
-            "free -m | awk 'NR==2{printf \"Mem: %s/%sMB %.1f%%\", $3,$2,$3*100/$2 }'",
-            shell=True,
-            text=True,
-            )
-            text4 = subprocess.check_output(
-            "top -bn1 | grep load | awk '{printf \"Loa: %.2f %.2f %.2f\", $(NF-2), $(NF-1), $NF}'",
-            shell=True,
-            text=True,
-            )
-            text5 = subprocess.check_output(
-            "cat /sys/class/thermal/thermal_zone0/temp | awk '{printf \"Tmp: %3.1fc\", $1/1000}'",
-            shell=True,
-            text=True,
-            )
+
+            try:
+                ip_output = subprocess.check_output(
+                    "ip -4 addr show dev end0 | grep 'inet ' | awk '{print $2}'",
+                    shell=True,
+                    text=True,
+                ).strip()
+                subnet = ip_output.split("/")[1] if "/" in ip_output else "?"
+            except Exception:
+                subnet = "?"
+
+            try:
+                gateway = subprocess.check_output(
+                    "ip route | grep default | awk '{print $3}'",
+                    shell=True,
+                    text=True,
+                ).strip()
+            except Exception:
+                gateway = "?"
+
+            try:
+                dns = subprocess.check_output(
+                    "resolvectl status | awk '/Current DNS Server:/ { print $4; exit }'",
+                    shell=True,
+                    text=True,
+                ).strip()
+            except Exception:
+                dns = "?"
+
+            try:
+                domain = subprocess.check_output(
+                    "resolvectl status | awk '/DNS Domain:/ { print $3; exit }'",
+                    shell=True,
+                    text=True,
+                ).strip()
+            except Exception:
+                domain = "?"
+
+            text2 = f"Sub: /{subnet}"
+            text3 = f"Def: {gateway}"
+            text4 = f"Dns: {dns}"
+            text5 = f"Dom: {domain}"
+
             image_draw.rectangle((0, 0, 128, 64), 0)
             image_draw.text((6, 2), text1, 1, image_font10)
             image_draw.text((6, 14), text2, 1, image_font10)
