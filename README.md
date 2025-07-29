@@ -3,7 +3,7 @@ Python3 and Bash scripts to use the ARM Neo2 as a network tester
 
 
 ## Image download
-This is currently the only image I could find that does not crash after the netwotk interface becomes active.
+This is currently the only image I could find that does not crash after the network interface becomes active.
 * Image: `Armbian_community_25.8.0-trunk.309_Nanopineo_noble_current_6.12.35.img.xz`
 * Download: https://github.com/armbian/community/releases/download/25.8.0-trunk.309/Armbian_community_25.8.0-trunk.309_Nanopineo_noble_current_6.12.35.img.xz
 
@@ -103,7 +103,7 @@ Look for the OLED’s I²C address—usually **0x3c**. You should see it in the 
 
 ```
 git clone https://github.com/paulboot/neo2-networktester.git
-cp -a ./neo2-networktester/* /usr/local/bin/
+sudo cp -a ./neo2-networktester/* /usr/local/bin/
 ```
 
 ### Automatic Startup
